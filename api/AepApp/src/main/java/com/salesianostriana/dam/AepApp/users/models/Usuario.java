@@ -61,9 +61,9 @@ public class Usuario implements Serializable, UserDetails {
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
-    @ManyToOne
+    /*@ManyToOne
     @MapsId("club_id")
-    private Club club;
+    private Club club;*/
 
     /*@Builder.Default
     @OneToMany(mappedBy = "competicion")

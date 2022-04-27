@@ -1,5 +1,8 @@
-package com.salesianostriana.dam.AepApp.security.jwt;
+package com.salesianostriana.dam.AepApp.security;
 
+import com.salesianostriana.dam.AepApp.security.jwt.JwtAccesDeniedHandler;
+import com.salesianostriana.dam.AepApp.security.jwt.JwtAuthenticationEntryPoint;
+import com.salesianostriana.dam.AepApp.security.jwt.JwtAuthorizationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -45,6 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/auth/login").permitAll()
+                .antMatchers(HttpMethod.GET, "/download/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/register").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated();
 
