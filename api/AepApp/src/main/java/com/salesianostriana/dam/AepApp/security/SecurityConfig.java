@@ -50,6 +50,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/auth/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/download/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                .antMatchers(HttpMethod.GET, "/championships/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/championships/").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/championships/{id}").hasRole("ADMINISTRADOR")
+                .antMatchers(HttpMethod.PUT, "/championships/{id}").hasRole("ADMINISTRADOR")
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated();
 

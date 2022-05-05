@@ -51,6 +51,8 @@ public class AuthenticationController {
                 .email(usuario.getEmail())
                 .fotoPerfil(usuario.getFotoPerfil())
                 .username(usuario.getUsername())
+                .rol(usuario.getRole().name())
+                .token(jwt)
                 .build();
     }
 }

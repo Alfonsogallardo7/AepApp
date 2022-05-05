@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -38,15 +39,19 @@ public class Competicion implements Serializable {
 
     private String cartel;
 
-    private LocalDateTime fechaInicio;
+    private LocalDate fechaInicio;
 
-    private LocalDateTime fechaFin;
+    private LocalDate fechaFin;
 
     private String organizador;
 
     private String categoriaCompeticion;
 
     private String sesiones;
+
+    private String localidad;
+
+    private String provincia;
 
     /*@Builder.Default
     @OneToMany(mappedBy = "competicion")
