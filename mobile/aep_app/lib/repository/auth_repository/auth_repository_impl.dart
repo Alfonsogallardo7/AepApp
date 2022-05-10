@@ -1,11 +1,14 @@
 import 'dart:convert';
 
 import 'package:aep_app/models/login_response.dart';
+import 'package:aep_app/models/register_response.dart';
+import 'package:aep_app/models/register_dto.dart';
 import 'package:aep_app/repository/auth_repository/auth_repository.dart';
 import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
 
 class AuthrepositoryImpl extends AuthRepository {
-
   final Client _client = Client();
   @override
   Future<LoginResponse> login(LoginDto loginDto) async {
@@ -22,6 +25,46 @@ class AuthrepositoryImpl extends AuthRepository {
       return LoginResponse.fromJson(json.decode(response.body));
     } else {
       throw Exception('Fail to login');
+    }
+  }
+
+  @override
+  Future<RegisterResponse> register(
+      RegisterDto registerDto, String imagePath) async {
+    Map<String, String> headers = {
+      'Content-Type': 'multipart/form-data',
+    };
+
+    var uri = Uri.parse('http://10.0.2.2:8080/auth/register');
+
+    var body = jsonEncode({
+      'nombre': registerDto.nombre,
+      'apellidos': registerDto.apellidos,
+      'email': registerDto.email,
+      'password': registerDto.password,
+      'password2': registerDto.password2,
+      'username': registerDto.username,
+      'dni': registerDto.dni,
+      'direccion': registerDto.direccion,
+      'codigoPostal': registerDto.codigoPostal,
+      'localidad': registerDto.localidad,
+      'telefono': registerDto.telefono,
+      'fechaNacimiento': registerDto.fechaNacimiento,
+    });
+
+    var request = http.MultipartRequest('POST', uri)
+      ..files.add(http.MultipartFile.fromString('nuevoUsuario', body,
+          contentType: MediaType('application', 'json')))
+      ..files.add(await http.MultipartFile.fromPath('file', imagePath,
+          contentType: MediaType('multipart', 'form-data')))
+      ..headers.addAll(headers);
+    final response = await request.send();
+
+    if (response.statusCode == 200) {
+      return RegisterResponse.fromJson(
+          jsonDecode(await response.stream.bytesToString()));
+    } else {
+      throw Exception('Failed to register');
     }
   }
 }
