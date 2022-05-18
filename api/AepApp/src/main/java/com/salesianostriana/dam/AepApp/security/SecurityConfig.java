@@ -52,8 +52,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/auth/register").permitAll()
                 .antMatchers(HttpMethod.GET, "/championships/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/championships/").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/championships/{id}").hasRole("ADMINISTRADOR")
-                .antMatchers(HttpMethod.PUT, "/championships/{id}").hasRole("ADMINISTRADOR")
+                .antMatchers(HttpMethod.DELETE, "/championships/{id}").permitAll()
+                .antMatchers(HttpMethod.PUT, "/championships/{id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/judges/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/judges/").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/judges/{id}").permitAll()
+                .antMatchers(HttpMethod.PUT, "/judges/{id}").permitAll()
+                .antMatchers(HttpMethod.GET, "/clubs/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/clubs/").permitAll()
+                .antMatchers(HttpMethod.DELETE, "/clubs/{id}").permitAll()
+                .antMatchers(HttpMethod.PUT, "/clubs/{id}").permitAll()
                 .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated();
 

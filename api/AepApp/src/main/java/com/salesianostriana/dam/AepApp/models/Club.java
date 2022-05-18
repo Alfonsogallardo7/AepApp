@@ -35,6 +35,8 @@ public class Club implements Serializable {
 
     private String nombre;
 
+    private String foto;
+
     private String abreviatura;
 
     private String nif;
