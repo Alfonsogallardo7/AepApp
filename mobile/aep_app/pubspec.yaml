@@ -79,6 +79,10 @@ flutter:
   assets:
     - assets/images/logo.jpeg
     - assets/images/mock-avatar.png
+    - assets/images/perfil-icon.svg
+    - assets/images/home-icon.svg
+    - assets/images/list-icon.svg
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
