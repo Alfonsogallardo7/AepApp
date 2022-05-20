@@ -90,7 +90,7 @@ public class CompeticionServiceImpl implements CompeticionService {
                     .cartel(uri)
                     .fechaFin(competicionDto.getFechaFin())
                     .fechaInicio(competicionDto.getFechaInicio())
-                    .organizador(usuario.getNombre())
+                    .organizador("yo")
                     .localidad(competicionDto.getLocalidad())
                     .provincia(competicionDto.getProvincia())
                     .sesiones(competicionDto.getSesiones()).build();
