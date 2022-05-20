@@ -1,6 +1,7 @@
 import 'package:aep_app/ui/screen/home_screen.dart';
 import 'package:aep_app/ui/screen/perfil_screen.dart';
 import 'package:aep_app/ui/screen/record_screen.dart';
+import 'package:aep_app/ui/widgets/aep_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -30,6 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: const AepBar(),
         body: Container(
             margin: MediaQuery.of(context).padding,
             child: pages[_selectedIndex]),

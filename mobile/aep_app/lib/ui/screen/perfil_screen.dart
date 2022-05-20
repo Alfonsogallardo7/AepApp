@@ -1,3 +1,4 @@
+import 'package:aep_app/ui/widgets/aep_bar.dart';
 import 'package:flutter/material.dart';
 
 class PerfilScreen extends StatefulWidget {
@@ -10,9 +11,14 @@ class PerfilScreen extends StatefulWidget {
 class _PerfilScreenState extends State<PerfilScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('PerfilScreen'),
-      
-    );
+    return Scaffold(
+        appBar: const AepBar(),
+        body: Container(child: Text('perfil screen'),));
+        // body: BlocProvider(
+        //   create: (context) {
+        //     return CampeonatosBloc(campeonatoRepository)..add(FetchCampeonatosWithType());
+        //   },
+        //   child: Scaffold(body: _createList(context)),
+        // ));
   }
 }

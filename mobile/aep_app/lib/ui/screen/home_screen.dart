@@ -35,16 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AepBar(),
-        // body: Container(child: Text('hola jezu')),);
-
-        body: BlocProvider(
+return BlocProvider(
           create: (context) {
             return CampeonatosBloc(campeonatoRepository)..add(FetchCampeonatosWithType());
           },
-          child: Scaffold(body: _createList(context)),
-        ));
+          child: _createList(context),
+        );
   }
 
   Widget _createList(BuildContext context) {
@@ -93,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _createPostViewItem(BuildContext context, Campeonatos campeonatos) {
     final width = MediaQuery.of(context).size.width / 2.6;
     return Container(
+      color: Colors.white,
       padding: EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [

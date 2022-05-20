@@ -19,9 +19,7 @@ class _AepBarState extends State<AepBar> {
     return Container(
       color: Colors.white,
       margin: const EdgeInsets.only(top: 10),
-      child: Expanded(
-          flex: 1,
-          child: Row(
+      child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
                Padding(
@@ -32,7 +30,7 @@ class _AepBarState extends State<AepBar> {
                           ), 
               ),
             ],
-          )),
+          ),
     );
   }
 }

@@ -17,7 +17,7 @@ class CampeonatoRepositoryImpl extends CampeonatoRepository {
     final response = await _client
         .get(Uri.parse('http://10.0.2.2:8080/championships/'), headers: {
       'Authorization':
-          'Bearer $token'
+          'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJzdWIiOiI3ZjAwMDAwMS04MGUwLTE5MmYtODE4MC1lMGQ5YmM0MzAwMDAiLCJpYXQiOjE2NTMxMjYyMDksIm5vbWJyZSI6IkFsZm9uc28iLCJhcGVsbGlkb3MiOiJHYWxsYXJkbyBSb2Ryw61ndWV6Iiwicm9sZSI6IkFETUlOSVNUUkFET1IifQ.ZzwILpFqYKTfS3eNl5-v8YzLoY90LHwOEFTKWsY3kTi9XlCQd1YwKTnzhv72656w'
     });
     if (response.statusCode == 200) {
       return CampeonatosResponse.fromJson(json.decode(response.body)).content;
