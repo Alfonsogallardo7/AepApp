@@ -5,7 +5,7 @@ class Constant {
   static String nowPlaying = "now_playing";
   static String topRated = "top_rated";
   static String upcoming = "upcoming";
-  static String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJzdWIiOiI3ZjAwMDAwMS04MGUwLTE5MmYtODE4MC1lMGQ5YmM0MzAwMDAiLCJpYXQiOjE2NTMxMjYyMDksIm5vbWJyZSI6IkFsZm9uc28iLCJhcGVsbGlkb3MiOiJHYWxsYXJkbyBSb2Ryw61ndWV6Iiwicm9sZSI6IkFETUlOSVNUUkFET1IifQ.ZzwILpFqYKTfS3eNl5-v8YzLoY90LHwOEFTKWsY3kTi9XlCQd1YwKTnzhv72656w";
+  static String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhYzFiMDI4ZS04MGUxLTE3ZWMtODE4MC1lMTVhZDA1YTAwMDAiLCJpYXQiOjE2NTMxMzQ2NjksIm5vbWJyZSI6IkFsZm9uc28iLCJhcGVsbGlkb3MiOiJHYWxsYXJkbyBSb2Ryw61ndWV6Iiwicm9sZSI6IkFETUlOSVNUUkFET1IifQ.G-rD31FL0bLfeiPRXx8ukNbhH-ILVrQL76skpB8K-WH62QOTceQ_1eDwZ4a4ZrYV";
   static Image img = '' as Image;
 
   static const foto_perfil_path = 'avatar_image_path';
