@@ -31,7 +31,7 @@ public class UsuarioServices extends BaseService<Usuario, UUID, UsuarioRepositor
     private final StorageService storageService;
     private final UsuarioRepository usuarioRepository;
 
-    public Usuario save (CreateUsuarioDto nuevoUsuario, MultipartFile file) throws IOException {
+    public Usuario saveAdministrador (CreateUsuarioDto nuevoUsuario, MultipartFile file) throws IOException {
         String filename = storageService.store(file);
 
         String extension = StringUtils.getFilenameExtension(filename);
@@ -60,6 +60,45 @@ public class UsuarioServices extends BaseService<Usuario, UUID, UsuarioRepositor
                     .fechaNacimieto(nuevoUsuario.getFechaNacimiento())
                     .codigoPostal(nuevoUsuario.getCodigoPostal())
                     .role(UserRole.ADMINISTRADOR)
+                    .direccion(nuevoUsuario.getDireccion())
+                    .telefono(nuevoUsuario.getTelefono())
+                    .localidad(nuevoUsuario.getLocalidad())
+                    .build();
+            return repositorio.save(usuario);
+        } else
+
+            return null;
+    }
+
+    public Usuario saveUser (CreateUsuarioDto nuevoUsuario, MultipartFile file) throws IOException {
+        String filename = storageService.store(file);
+
+        String extension = StringUtils.getFilenameExtension(filename);
+        BufferedImage originalImage = ImageIO.read(file.getInputStream());
+
+        BufferedImage ecaledImage = storageService.simpleResizer(originalImage, 128);
+
+        OutputStream outputStream = Files.newOutputStream(storageService.load(filename));
+
+        ImageIO.write(ecaledImage,extension,outputStream);
+
+        String uri = ServletUriComponentsBuilder.fromCurrentContextPath()
+                .path("/download/")
+                .path(filename)
+                .toUriString();
+
+        if (nuevoUsuario.getPassword().contentEquals(nuevoUsuario.getPassword2())){
+            Usuario usuario = Usuario.builder()
+                    .password(passwordEncoder.encode(nuevoUsuario.getPassword()))
+                    .nombre(nuevoUsuario.getNombre())
+                    .apellidos(nuevoUsuario.getApellidos())
+                    .fotoPerfil(uri)
+                    .email(nuevoUsuario.getEmail())
+                    .username(nuevoUsuario.getUsername())
+                    .dni(nuevoUsuario.getDni())
+                    .fechaNacimieto(nuevoUsuario.getFechaNacimiento())
+                    .codigoPostal(nuevoUsuario.getCodigoPostal())
+                    .role(UserRole.USUARIO)
                     .direccion(nuevoUsuario.getDireccion())
                     .telefono(nuevoUsuario.getTelefono())
                     .localidad(nuevoUsuario.getLocalidad())
