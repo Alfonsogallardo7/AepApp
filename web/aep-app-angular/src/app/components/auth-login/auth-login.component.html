@@ -1,0 +1,27 @@
+<div id="auth-login">
+    <div class="principal">
+        <div class="aep-logo">
+            <img src="../../../assets/img/logo.jpeg" alt="aep-logo" width="40%">
+        </div>
+        <div class="tittle">
+            <p>Admin Login</p>
+        </div>
+        <div class="form">
+            <form (ngSubmit)="doLogin()" [formGroup]="loginForm">
+                <div class="camp-form">
+                    <label class = "input-tittle" for="email">Email</label>
+                    <input class = "input" [ngModel]="loginDto.email" formControlName="email" type="email"
+                      id="email" />
+                </div>
+                <div class="camp-form">
+                    <label class = "input-tittle" for="password">Contraseña</label>
+                    <input class = "input" [ngModel]="loginDto.password" formControlName="password" type="password"
+                      id="password" />
+                </div>
+                <div class="login-button">
+                    <button class="btn btn-login">Iniciar Sesión</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

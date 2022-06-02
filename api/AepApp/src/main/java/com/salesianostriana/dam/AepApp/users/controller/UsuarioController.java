@@ -21,10 +21,21 @@ public class UsuarioController {
     private final UsuarioServices usuarioServices;
     private final UsuarioDtoConvert usuarioDtoConvert;
 
+    @PostMapping("/auth/register-admin")
+    public ResponseEntity<GetUsuarioDto> addAdministrador (@RequestPart("nuevoUsuario") CreateUsuarioDto nuevoUsuario, @RequestPart("file") MultipartFile file) throws IOException {
+
+        Usuario usuario = usuarioServices.saveAdministrador(nuevoUsuario, file);
+
+        if (usuario == null) {
+            return ResponseEntity.badRequest().build();
+        } else
+            return ResponseEntity.ok(usuarioDtoConvert.convertUsuarioToUsuarioDto(usuario));
+    }
+
     @PostMapping("/auth/register")
     public ResponseEntity<GetUsuarioDto> addUsuario (@RequestPart("nuevoUsuario") CreateUsuarioDto nuevoUsuario, @RequestPart("file") MultipartFile file) throws IOException {
 
-        Usuario usuario = usuarioServices.save(nuevoUsuario, file);
+        Usuario usuario = usuarioServices.saveUser(nuevoUsuario, file);
 
         if (usuario == null) {
             return ResponseEntity.badRequest().build();
