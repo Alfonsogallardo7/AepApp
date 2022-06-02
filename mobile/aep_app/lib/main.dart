@@ -1,6 +1,7 @@
 import 'package:aep_app/ui/screen/login_screen.dart';
+import 'package:aep_app/ui/screen/menu_screen.dart';
+import 'package:aep_app/ui/screen/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
   routes: {
-    '/': (context) => const LoginScreen(),
+    '/': (context) => const MenuScreen(),
     '/login': (context) => const LoginScreen(),
-    //'/register': (context) => const RegisterScreen(),
+    '/register': (context) => const RegisterScreen(),
   },
     );
   }
