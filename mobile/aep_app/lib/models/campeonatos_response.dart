@@ -75,8 +75,8 @@ class Campeonatos {
   late final String cartel;
   late final String organizador;
   late final String categoriaCompeticion;
-  late final String cuadranteJueces;
-  late final String sesiones;
+  late final String? cuadranteJueces;
+  late final String? sesiones;
   late final String localidad;
   late final String provincia;
   late final String fechaInicio;

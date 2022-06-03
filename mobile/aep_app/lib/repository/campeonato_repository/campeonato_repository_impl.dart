@@ -12,11 +12,11 @@ class CampeonatoRepositoryImpl extends CampeonatoRepository {
   @override
   Future<List<Campeonatos>> getCampeonatos() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
-    // var token = preferences.getString (Constant.token);
+    var token = preferences.getString (Constant.token);
     final response = await _client
-        .get(Uri.parse('http://10.0.2.2:8080/championships/'), headers: {
+        .get(Uri.parse('http://localhost:8080/championships/'), headers: {
       'Authorization':
-          'Bearer ${Constant.token}'
+          'Bearer $token',
     });
     if (response.statusCode == 200) {
       return CampeonatosResponse.fromJson(json.decode(response.body)).content;

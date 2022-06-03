@@ -1,6 +1,7 @@
 import 'package:aep_app/ui/screen/login_screen.dart';
 import 'package:aep_app/ui/screen/menu_screen.dart';
 import 'package:aep_app/ui/screen/register_screen.dart';
+import 'package:aep_app/ui/widgets/aep_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {

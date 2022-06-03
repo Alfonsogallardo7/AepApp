@@ -35,58 +35,78 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-return BlocProvider(
-          create: (context) {
-            return CampeonatosBloc(campeonatoRepository)..add(FetchCampeonatosWithType());
-          },
-          child: _createList(context),
-        );
+    return BlocProvider(
+      create: (context) {
+        return CampeonatosBloc(campeonatoRepository)
+          ..add(FetchCampeonatosWithType());
+      },
+      child: Scaffold(
+        // appBar: const AepBar(),
+        body: _createList(context),
+      ),
+    );
   }
-
-  Widget _createList(BuildContext context) {
-    return BlocBuilder<CampeonatosBloc, CampeonatosState>(
-      builder: (context, state) {
-        if (state is CampeonatosInitial) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (state is CampeonatosFetchError) {
-          return ErrorScreen(
+    Widget _createList(BuildContext context) {
+  return BlocBuilder<CampeonatosBloc, CampeonatosState>(
+    builder: (context, state) {
+      if (state is CampeonatosInitial) {
+        return const Center(child: CircularProgressIndicator());
+      } else if (state is CampeonatosFetchError) {
+       return ErrorScreen(
             message: state.message,
             retry: () {
               context.watch<CampeonatosBloc>().add(FetchCampeonatosWithType());
             },
-          );
-        } else if (state is CampeonatosFetched) {
-          return _createPopularView(context, state.campeonatos);
-        } else {
-          return const Text('Not support');
-        }
+        );
+      } else if (state is CampeonatosFetched) {
+        return _createPopularView(context, state.campeonatos);
+      } else {
+        return Center(child: Text("No hay campeonatos actualmente"));
+      }
+    },
+  );
+}
+
+//   Widget _createList(BuildContext context) {
+//     return BlocBuilder<CampeonatosBloc, CampeonatosState>(
+//       builder: (context, state) {
+//         if (state is CampeonatosInitial) {
+//           return const Center(child: CircularProgressIndicator());
+//         } else if (state is CampeonatosFetchError) {
+//           return ErrorScreen(
+//             message: state.message,
+//             retry: () {
+//               context.watch<CampeonatosBloc>().add(FetchCampeonatosWithType());
+//             },
+//           );
+//         } else if (state is CampeonatosFetched) {
+//           return _createPopularView(context, state.campeonatos);
+//         } else {
+//           return const Text('Not support');
+//         }
+//       },
+//     );
+//   }
+
+Widget _createPopularView(BuildContext context, List<Campeonatos> campeonatos) {
+  final contentHeight = 4.0 * (MediaQuery.of(context).size.width / 2.4) / 3;
+  return SizedBox(
+    height: MediaQuery.of(context).size.height,
+    child: ListView.separated(
+      itemBuilder: (BuildContext context, int index) {
+        return _campeonatos(context, campeonatos[index]);
       },
-    );
-  }
-
-  Widget _createPopularView(BuildContext context, List<Campeonatos> campeonatos) {
-    //final contentHeight = 4.0 * (MediaQuery.of(context).size.width / 2.4) / 3;
-    return Column(
-      children: [
-        SizedBox(
-          height: MediaQuery.of(context).size.height / 1.33,
-          child: ListView.separated(
-            itemBuilder: (BuildContext context, int index) {
-              return _createPostViewItem(context, campeonatos[index]);
-            },
-            scrollDirection: Axis.vertical,
-            separatorBuilder: (context, index) => const VerticalDivider(
-              color: Colors.transparent,
-              width: 6.0,
-            ),
-            itemCount: campeonatos.length,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _createPostViewItem(BuildContext context, Campeonatos campeonatos) {
+      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+      scrollDirection: Axis.vertical,
+      separatorBuilder: (context, index) => const VerticalDivider(
+        color: Colors.transparent,
+        width: 6.0,
+      ),
+      itemCount: campeonatos.length,
+    ),
+  );
+}
+  Widget _campeonatos(BuildContext context, Campeonatos campeonatos) {
     final width = MediaQuery.of(context).size.width / 2.6;
     return Container(
       color: Colors.white,
@@ -175,8 +195,9 @@ return BlocProvider(
                     placeholder: (context, url) => const Center(
                       child: CircularProgressIndicator(),
                     ),
-                    imageUrl: campeonatos.cartel.replaceAll(
-                        'http://localhost:8080/', 'http://10.0.2.2:8080/'),
+                    imageUrl: campeonatos.cartel,
+                    // imageUrl: campeonatos.cartel.replaceAll(
+                    //     'http://localhost:8080/', 'http://10.0.2.2:8080/'),
                     fit: BoxFit.cover,
                   ),
                 ),
