@@ -12,7 +12,6 @@ class _PerfilScreenState extends State<PerfilScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const AepBar(),
         body: Container(child: Text('perfil screen'),));
         // body: BlocProvider(
         //   create: (context) {
