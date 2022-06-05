@@ -8,10 +8,14 @@ import { MaterialImportsModule } from './modules/material-imports.module';
 import { AuthLoginComponent } from './components/auth-login/auth-login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CampeonatoItemComponent } from './components/campeonato-item/campeonato-item.component';
+import { CampeonatoListComponent } from './components/campeonato-list/campeonato-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    AuthLoginComponent
+    AuthLoginComponent,
+    CampeonatoItemComponent,
+    CampeonatoListComponent
   ],
   imports: [
     BrowserModule,
