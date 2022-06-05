@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthLoginDto } from 'src/app/model/dto/login.dto';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -16,7 +17,8 @@ export class AuthLoginComponent implements OnInit {
     password: new FormControl ('', [Validators.required]),
 
   });
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,9 +27,9 @@ export class AuthLoginComponent implements OnInit {
     this.loginDto = this.loginForm.value;
     this.authService.login(this.loginDto).subscribe(loginResponse => {
       this.authService.setLocalRequestToken(loginResponse.token)
-      console.log(loginResponse);
       
     })
+    this.router.navigate(['championships/']);
   }
 
 }
