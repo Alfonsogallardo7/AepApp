@@ -29,7 +29,7 @@ export class AuthLoginComponent implements OnInit {
       this.authService.setLocalRequestToken(loginResponse.token)
       
     })
-    // this.router.navigate(['championships/']);
+    this.router.navigate(['championships/']);
   }
 
 }
