@@ -15,9 +15,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -80,6 +83,27 @@ public class AuthenticationController {
                 .apellidos(usuario.getApellidos())
                 .email(usuario.getEmail())
                 .fotoPerfil(usuario.getFotoPerfil())
+                .username(usuario.getUsername())
+                .rol(usuario.getRole().name())
+                .token(jwt)
+                .build();
+    }
+
+    @GetMapping("/me")
+    public ResponseEntity<?> me (@AuthenticationPrincipal Usuario usuario) {
+        return ResponseEntity.ok(convertUserToJwtMeResponse(usuario, jwt));
+    }
+
+    private JwtUserResponse convertUserToJwtMeResponse (Usuario usuario, String jwt) {
+        return JwtUserResponse.builder()
+                .nombre(usuario.getNombre())
+                .apellidos(usuario.getApellidos())
+                .email(usuario.getEmail())
+                .fotoPerfil(usuario.getFotoPerfil())
+                .fechaNacimiento(usuario.getFechaNacimieto())
+                .direccion(usuario.getDireccion())
+                .codigoPostal(usuario.getCodigoPostal())
+                .localidad(usuario.getLocalidad())
                 .username(usuario.getUsername())
                 .rol(usuario.getRole().name())
                 .token(jwt)
