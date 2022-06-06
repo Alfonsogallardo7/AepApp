@@ -14,7 +14,7 @@ class CampeonatoRepositoryImpl extends CampeonatoRepository {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     var token = preferences.getString (Constant.token);
     final response = await _client
-        .get(Uri.parse('http://localhost:8080/championships/'), headers: {
+        .get(Uri.parse('https://aep-app.herokuapp.com/championships/'), headers: {
       'Authorization':
           'Bearer $token',
     });

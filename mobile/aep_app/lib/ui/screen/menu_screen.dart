@@ -31,6 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         appBar: const AepBar(),
         body: Container(
             margin: MediaQuery.of(context).padding,
@@ -86,19 +87,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 },
                 child: Container(
                   padding: const EdgeInsets.all(5),
-                  // decoration: BoxDecoration(
-                  //     borderRadius: BorderRadius.circular(100),
-                  //     border: Border.all(
-                  //         color: _selectedIndex == 2
-                  //             ? Colors.black
-                  //             : Colors.transparent,
-                  //         width: 1)),
                   child: ClipRRect(
-                    // child: Icon(Icons.person,
-                    //     color: _selectedIndex == 2
-                    //         ? const Color(0xffFF635A)
-                    //         : const Color(0xff848488),
-                    //         size: 30),
                     child: SvgPicture.asset('assets/images/perfil-icon.svg',
                         color: _selectedIndex == 2
                             ? const Color(0xffFF635A)
