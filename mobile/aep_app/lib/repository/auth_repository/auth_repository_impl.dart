@@ -18,7 +18,7 @@ class AuthrepositoryImpl extends AuthRepository {
     };
 
     final response = await _client.post(
-        Uri.parse('http://localhost:8080/auth/login'),
+        Uri.parse('https://aep-app.herokuapp.com/auth/login'),
         headers: headers,
         body: jsonEncode(loginDto.toJson()));
     if (response.statusCode == 201) {
@@ -35,7 +35,7 @@ class AuthrepositoryImpl extends AuthRepository {
       'Content-Type': 'multipart/form-data',
     };
 
-    var uri = Uri.parse('http://localhost:8080/auth/register');
+    var uri = Uri.parse('https://aep-app.herokuapp.com/auth/register');
 
     var body = jsonEncode({
       'nombre': registerDto.nombre,
