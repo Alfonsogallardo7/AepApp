@@ -1,0 +1,57 @@
+<app-navbar></app-navbar>
+<div class="campeonato-screen">
+    <div class="card-content">
+        <h1>Nuevo Campeonato</h1>
+        <form (ngSubmit)="doCreate()" [formGroup]="campeonatoForm">
+            <div class="camp-form-img">
+                <label class="input-tittle" for="cartel">Cartel *</label>
+                <input class="input" [ngModel]="campeonatoDto.cartel" formControlName="cartel" type="file"
+                id="cartel" />
+            </div>
+            <div style="display: flex; flex-direction:row; justify-content: space-between;">
+                <div class="camp-form">
+                    <label class="input-tittle" for="nombre">Nombre *</label>
+                    <input class="input" [ngModel]="campeonatoDto.nombre" formControlName="nombre" type="text"
+                        id="nombre" />
+                </div>
+                <div class="camp-form">
+                    <label class="input-tittle" for="localidad">Localidad *</label>
+                    <input class="input" [ngModel]="campeonatoDto.localidad" formControlName="localidad" type="text"
+                        id="localidad" />
+                </div>
+                <div class="camp-form">
+                    <label class="input-tittle" for="provincia">Provincia *</label>
+                    <select formControlName="provincia" type="text" id="provincia" class="input">
+                        <option *ngFor="let c of listaProvincias" [ngValue]="c.nm">
+                            {{ c.nm }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div style="display: flex; flex-direction:row; justify-content: space-between;">
+                <div class="camp-form">
+                    <label class="input-tittle" for="categoriaCompeticion">Categoría de la Competición *</label>
+                    <select formControlName="categoriaCompeticion" type="text" id="categoriaCompeticion" class="input">
+                        <option *ngFor="let c of categoriaCompeticion" [ngValue]="c.value">
+                            {{ c.viewValue }}
+                        </option>
+                    </select>
+                </div>
+                <div class="camp-form">
+                    <label class="input-tittle" for="fechaInicio">Fecha de Inicio *</label>
+                    <input class="input" [ngModel]="campeonatoDto.fechaInicio" formControlName="fechaInicio" type="date"
+                        id="fechaInicio" />
+                </div>
+                <div class="camp-form">
+                    <label class="input-tittle" for="fechaInicio">Fecha de Fin *</label>
+                    <input class="input" [ngModel]="campeonatoDto.fechaFin" formControlName="fechaFin" type="date"
+                    id="fechaFin" />
+                </div>
+            </div>
+            <div class="login-button">
+                <button class="btn btn-login">Crear Campeonato</button>
+            </div>
+        </form>
+    </div>
+
+</div>

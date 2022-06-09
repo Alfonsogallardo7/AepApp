@@ -1,1 +1,18 @@
-<p style="background-color: red ;">hola caracola</p>
+<app-navbar></app-navbar>
+<div class="campeonato-screen">
+
+    <div class="card-content">
+        <div class="head-table">
+            <span>Cartel</span>
+            <span>Nombre</span>
+            <span style="padding-left: 7% ;">Fecha</span>
+            <span style="padding-left:2% ;">Localidad</span>
+            <span>Cateogría</span>
+            <span></span>
+        
+        </div>
+        <div class="content-table">
+            <app-campeonato-item *ngFor="let campeonato of campeonatos" [campeonatoInput]="campeonato"></app-campeonato-item>
+        </div>
+    </div>
+</div>
