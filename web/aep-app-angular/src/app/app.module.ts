@@ -10,12 +10,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CampeonatoItemComponent } from './components/campeonato-item/campeonato-item.component';
 import { CampeonatoListComponent } from './components/campeonato-list/campeonato-list.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { DialogCampeonatoDetailComponent } from './components/dialog-campeonato-detail/dialog-campeonato-detail.component';
+import { NewCampeonatoComponent } from './components/new-campeonato/new-campeonato.component';
 @NgModule({
   declarations: [
     AppComponent,
     AuthLoginComponent,
     CampeonatoItemComponent,
-    CampeonatoListComponent
+    CampeonatoListComponent,
+    NavbarComponent,
+    HomeComponent,
+    DialogCampeonatoDetailComponent,
+    NewCampeonatoComponent
   ],
   imports: [
     BrowserModule,

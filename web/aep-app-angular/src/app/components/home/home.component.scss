@@ -1,0 +1,30 @@
+.home-screen {
+    height: 92%;
+    width: 100%;
+    background-image: url("../../../assets/img/fondo-home.jpg");
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    .row {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 60%;
+        padding-left: 5%;
+        padding-right: 5%;
+        .home-card {
+            background-color: white;
+            border-radius: 30px;
+            width: 25%;
+            height: 65%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span {
+                font: 500 25px/32px Roboto, "Helvetica Neue", sans-serif;
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+.campeonato-screen {
+    height: 92%;
+    width: 100%;
+    background-image: url("../../../assets/img/fondo-home.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card-content {
+        width:90%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 30px;
+        background-color: white;
+        object-fit: fill;
+        content-visibility: auto;
+
+        .head-table {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            height: 10%;
+            padding-left: 5%;
+            padding-right: 5%;
+            background-color:  #fccccc;
+
+            span {
+                font: 500 18px/32px Roboto, "Helvetica Neue", sans-serif;
+            }
+        }
+
+        .content-table {
+            object-fit: fill;
+            overflow: scroll;
+            height: 90%;
+
+        }
+    }
+}
