@@ -1,10 +1,17 @@
 package com.salesianostriana.dam.AepApp.dto.competicion;
 
+//import com.salesianostriana.dam.AepApp.dto.competidor.CompetidorConCompeticionDtoCoverter;
 import com.salesianostriana.dam.AepApp.models.Competicion;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.stream.Collectors;
+
 @Component
+@RequiredArgsConstructor
 public class CompeticionDtoConverter {
+
+    //private final CompetidorConCompeticionDtoCoverter competidorConCompeticionDtoCoverter;
 
     public GetCompeticionDto convertComepticionToCompeticionDto (Competicion competicion) {
         return GetCompeticionDto.builder()
@@ -18,6 +25,10 @@ public class CompeticionDtoConverter {
                 .provincia(competicion.getProvincia())
                 .localidad(competicion.getLocalidad())
                 .sesiones(competicion.getSesiones())
+                /*.competidores(competicion.getListaCompetidores()
+                        .stream()
+                        .map(competidorConCompeticionDtoCoverter::convertCompetidorConCompeticionToCompetidorConCompeticionDto)
+                        .collect(Collectors.toList()))*/
                 .build();
     }
 
@@ -33,6 +44,7 @@ public class CompeticionDtoConverter {
                 competicionDto.getCategoriaCompeticion(),
                 competicionDto.getSesiones(),
                 competicionDto.getOrganizador()
+                //competicion.getListaCompetidores()
         );
     }
 }

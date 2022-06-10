@@ -1,6 +1,5 @@
 package com.salesianostriana.dam.AepApp.models;
 
-import com.salesianostriana.dam.AepApp.users.models.Usuario;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -11,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -22,7 +20,7 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Competicion implements Serializable {
+public class Competidor implements Serializable {
 
     @GeneratedValue(generator = "UUID")
     @Id
@@ -38,32 +36,25 @@ public class Competicion implements Serializable {
 
     private String nombre;
 
-    private String cartel;
+    private String apellidos;
 
-    private LocalDate fechaInicio;
+    private LocalDate fechaNacimiento;
 
-    private LocalDate fechaFin;
+    private String categoriaPeso;
 
-    private String organizador;
+    private String foto;
 
-    private String categoriaCompeticion;
+    private Double marcasSq;
 
-    private String sesiones;
+    private Double marcasBp;
 
-    private String localidad;
+    private Double marcasDl;
 
-    private String provincia;
+    private String club;
 
-    /*@Builder.Default
-    @OneToMany(mappedBy = "competicion")
-    private List<Competidor> listaCompetidores = new ArrayList<>();*/
 
     /*@Builder.Default
-    @OneToMany(mappedBy = "competicion")
-    private List<Club> listaClubes;
-
-    @Builder.Default
-    @OneToMany(mappedBy = "competicion")
-    private List<Usuario> listaJueces;*/
+    @OneToMany(mappedBy = "competidor")
+    private List<Competicion> listaCompeticiones = new ArrayList<>();*/
 
 }
