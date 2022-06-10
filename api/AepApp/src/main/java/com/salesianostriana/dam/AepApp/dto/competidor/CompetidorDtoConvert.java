@@ -20,6 +20,7 @@ public class CompetidorDtoConvert {
                 .marcasDl(competidor.getMarcasDl())
                 .foto(competidor.getFoto())
                 .club(competidor.getClub())
+
                 .build();
     }
 
@@ -34,7 +35,8 @@ public class CompetidorDtoConvert {
                 competidorDto.getMarcasSq(),
                 competidorDto.getMarcasBp(),
                 competidorDto.getMarcasDl(),
-                competidorDto.getClub()
+                competidorDto.getClub(),
+                competidor.getListaCompeticiones()
         );
     }
 }

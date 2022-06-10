@@ -21,6 +21,6 @@ public class GetCompetidorDto {
     private LocalDate fechaNacimiento;
     private Double marcasSq, marcasBp, marcasDl;
 
-   /* @Builder.Default
-    private List<GetCompeticionDto> competiciones = new ArrayList<>();*/
+    @Builder.Default
+    private List<GetCompeticionDto> competiciones = new ArrayList<>();
 }

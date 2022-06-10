@@ -7,9 +7,11 @@ import { CampeonatoDto } from '../model/dto/campeonato.dto';
 import { Campeonato, CampeonatoResponse, NewCampeonatoResponse } from '../model/interfaces/campeonato.interface';
 import { AuthService } from './auth.service';
 
+const token = localStorage.getItem('request_token')
 const DEFAULT_HEADERS = {
   headers: new HttpHeaders({
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authorization' : `Bearer ${token}`
   })
 };
 @Injectable({
@@ -38,11 +40,11 @@ export class CampeonatoService {
     return this.http.post<NewCampeonatoResponse>(requestUrl, formData);
   }
 
-  deleteCampeonato(uuidCampeonato: string) {
+  deleteCampeonato(uuidCampeonato: string): Observable<Campeonato> {
     const token = this.authService.getLocalRequestToken();
     const reqHeaders = { Authorization: `Bearer ${token}` };
 
-    return this.http.delete(
+    return this.http.delete<Campeonato>(
       `${environment.apiBaseUrl}championships/${uuidCampeonato}`, DEFAULT_HEADERS
       // {headers: reqHeaders}
     );
