@@ -50,7 +50,7 @@ public class CompeticionServiceImpl implements CompeticionService {
                 .cartel(uri)
                 .fechaFin(competicionDto.getFechaFin())
                 .fechaInicio(competicionDto.getFechaInicio())
-                .organizador("yo")
+                .organizador(competicionDto.getOrganizador())
                 .sesiones(competicionDto.getSesiones())
                 .provincia(competicionDto.getProvincia())
                 .localidad(competicionDto.getLocalidad())

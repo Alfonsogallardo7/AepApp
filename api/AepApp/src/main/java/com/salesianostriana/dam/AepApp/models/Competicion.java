@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -55,9 +56,9 @@ public class Competicion implements Serializable {
 
     /*@Builder.Default
     @OneToMany(mappedBy = "competicion")
-    private List<Usuario> listaCompetidores;
+    private List<Competidor> listaCompetidores = new ArrayList<>();*/
 
-    @Builder.Default
+    /*@Builder.Default
     @OneToMany(mappedBy = "competicion")
     private List<Club> listaClubes;
 

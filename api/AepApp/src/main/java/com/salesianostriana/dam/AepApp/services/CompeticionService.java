@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.Optional;
 import java.util.UUID;
 
+
 public interface CompeticionService {
 
     Competicion save (CreateCompeticionDto competicion, MultipartFile file, Usuario usuario);
