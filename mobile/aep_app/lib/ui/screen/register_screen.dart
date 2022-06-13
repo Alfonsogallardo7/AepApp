@@ -42,6 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController dniController = TextEditingController();
   TextEditingController birthdateController = TextEditingController();
   bool isPublic = true;
+  String path = '';
   late SharedPreferences _prefs;
   final format = DateFormat("yyyy-MM-dd");
 
@@ -166,6 +167,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         builder: (context, state) {
                           if (state is ImageSelectedSuccessState) {
+                            path = state.pickedFile.path;
                             return Column(
                               children: [
                                 ClipRRect(
@@ -180,8 +182,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 ElevatedButton(
                                     onPressed: () {
                                       _prefs.setString(
-                                          Constant.foto_perfil_path,
-                                          state.pickedFile.path);
+                                          'file', path);
                                     },
                                     child: const Text('Subir imagen'))
                               ],
@@ -519,12 +520,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   apellidos: lastNameController.text,
                                   fechaNacimiento: birthdateController.text,
                                   password: passwordController.text,
-                                  password2: password2Controller.text);
+                                  password2: password2Controller.text,
+                                  dni: dniController.text,
+                                  direccion: addressController.text,
+                                  localidad: cityController.text,
+                                  codigoPostal: postalCodeController.text,
+                                  telefono: phoneController.text
+                                  );
                               BlocProvider.of<RegisterBloc>(context).add(
                                   DoRegisterEvent(
                                       registerDto,
-                                      _prefs.getString(
-                                          Constant.foto_perfil_path)!));
+                                      path
+                                      /*_prefs
+                                      .getString(Constant.foto_perfil_path)*/));
                             }
                           },
                           child: Container(

@@ -8,6 +8,6 @@ class Constant {
   static String token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJjMGE4MDE0NS04MTI2LTFkYmUtODE4MS0yNjFkZTBjODAwMDAiLCJpYXQiOjE2NTQyODgzMDQsIm5vbWJyZSI6IlJvc2EgTWFyaWEiLCJhcGVsbGlkb3MiOiJSb2RyaWd1ZXogTW92aWxsYSIsInJvbGUiOiJVU1VBUklPIn0.YgnFyloWEdzkY-J2xmKMjTz75PO95TQFx8_OlPUHgbV00tfj--Rw47PpljMmaxQ_";
   static Image img = '' as Image;
 
-  static const foto_perfil_path = 'avatar_image_path';
+  static const foto_perfil_path = '';
 
 }
