@@ -43,8 +43,7 @@ export class CampeonatoItemComponent implements OnInit {
           // Hicieron click en "Sí"
           this.campeonatoService.deleteCampeonato(campeonato.id).subscribe(resp =>  {
             console.log("*se elimina la venta*");
-            window.location.reload();
-            this.router.navigateByUrl('championships/')
+            this.router.navigateByUrl('home/')
           });
           
         } else {
