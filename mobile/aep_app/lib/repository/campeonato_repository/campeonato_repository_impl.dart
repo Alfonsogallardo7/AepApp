@@ -17,6 +17,7 @@ class CampeonatoRepositoryImpl extends CampeonatoRepository {
         .get(Uri.parse('https://aep-app.herokuapp.com/championships/'), headers: {
       'Authorization':
           'Bearer $token',
+          'Content-Type': 'application/json; charset=utf-8'
     });
     if (response.statusCode == 200) {
       return CampeonatosResponse.fromJson(json.decode(response.body)).content;
