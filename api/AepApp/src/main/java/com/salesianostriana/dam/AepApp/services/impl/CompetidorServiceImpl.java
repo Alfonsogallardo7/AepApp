@@ -29,6 +29,8 @@ public class CompetidorServiceImpl implements CompetidorService {
     private final StorageService storageService;
     private final FileSystemStorageService fileSystemStorageService;
     private final CompetidorDtoConvert competidorDtoConvert;
+    private GetCompetidorDto build;
+
     @Override
     public Competidor save(CreateCompetidorDto competidorDto, MultipartFile file, Usuario usuario) {
         String filename = storageService.store(file);
@@ -80,21 +82,24 @@ public class CompetidorServiceImpl implements CompetidorService {
         if (competidorBuscado.isEmpty())
             return null;
         else {
-            GetCompetidorDto competidorDto = GetCompetidorDto.builder()
-                    .id(competidorBuscado.get().getId())
-                    .nombre(createCompetidorDto.getNombre())
-                    .apellidos(createCompetidorDto.getApellidos())
-                    .fechaNacimiento(createCompetidorDto.getFechaNacimiento())
-                    .categoriaPeso(createCompetidorDto.getCategoriaPeso())
-                    .foto(createCompetidorDto.getFoto())
-                    .marcasSq(createCompetidorDto.getMarcasSq())
-                    .marcasBp(createCompetidorDto.getMarcasBp())
-                    .marcasDl(createCompetidorDto.getMarcasDl())
-                    .club(createCompetidorDto.getClub())
-                    .build();
-
+           GetCompetidorDto competidorDto = build;
+            
+            
             competidorRepository.save(competidorDtoConvert.convertCompetidorDtoToCompetidor(competidorDto, competidorBuscado.get()));
             return competidorDto;
+            /*return competidorBuscado.map(competidor -> {
+                competidor.setNombre(createCompetidorDto.getNombre());
+                competidor.setApellidos(createCompetidorDto.getApellidos());
+                competidor.setFechaNacimiento(createCompetidorDto.getFechaNacimiento());
+                competidor.setCategoriaPeso(createCompetidorDto.getCategoriaPeso());
+                competidor.setFoto(createCompetidorDto.getFoto());
+                competidor.setMarcasSq(createCompetidorDto.getMarcasSq());
+                competidor.setMarcasBp(createCompetidorDto.getMarcasBp());
+                competidor.setMarcasDl(createCompetidorDto.getMarcasDl());
+                competidor.setClub(createCompetidorDto.getClub());
+                
+                competidorRepository.save()
+            });*/
         }
     }
 

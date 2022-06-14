@@ -9,7 +9,7 @@ import lombok.experimental.SuperBuilder;
 import java.time.LocalDate;
 import java.util.UUID;
 
-/*@SuperBuilder
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -19,4 +19,4 @@ public class GetCompetidorListaDto {
     private UUID id;
     private String nombre, apellidos, club, categoriaPeso;
     private LocalDate fechaNacimiento;
-}*/
+}

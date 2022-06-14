@@ -25,7 +25,7 @@ export class NewCampeonatoComponent implements OnInit {
   campeonatoDto = new CampeonatoDto();
   campeonatoForm = new FormGroup({
     nombre: new FormControl('', [Validators.required]),
-    organizador: new FormControl(''),
+    //organizador: new FormControl(''),
     cartel: new FormControl(''),
     categoriaCompeticion: new FormControl('', [Validators.required]),
     cuadranteJueces: new FormControl(''),
@@ -45,12 +45,13 @@ export class NewCampeonatoComponent implements OnInit {
 
   doCreate() {
     // this.campeonatoForm.value.fechaInicio = this.parserFormDate(this.campeonatoForm.value.fechaInicio);
-    this.file = this.parseFile(this.campeonatoForm.value.cartel);
     this.campeonatoDto = this.campeonatoForm.value;
+    const file:File = this.campeonatoForm.value.cartel;
 
-    this.campeonatoService.createCampeonato(this.campeonatoDto, this.file)
+    this.campeonatoService.createCampeonato(this.campeonatoDto, file).subscribe(resp => {
+    });
     
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('home/');
     
 
   }

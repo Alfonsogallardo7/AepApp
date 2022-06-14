@@ -5,10 +5,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -54,9 +51,8 @@ public class Competicion implements Serializable {
 
     private String provincia;
 
-    /*@Builder.Default
-    @OneToMany(mappedBy = "competicion")
-    private List<Competidor> listaCompetidores = new ArrayList<>();*/
+    @ManyToMany(mappedBy = "listaCompeticiones", fetch = FetchType.EAGER)
+    private List<Competidor> listaCompetidores = new ArrayList<>();
 
     /*@Builder.Default
     @OneToMany(mappedBy = "competicion")

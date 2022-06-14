@@ -1,9 +1,9 @@
 package com.salesianostriana.dam.AepApp.dto.competidor;
 
-//import com.salesianostriana.dam.AepApp.models.Competidor;
+import com.salesianostriana.dam.AepApp.models.Competidor;
 import org.springframework.stereotype.Component;
 
-/*@Component
+@Component
 public class CompetidorConCompeticionDtoCoverter {
 
     public GetCompetidorListaDto convertCompetidorConCompeticionToCompetidorConCompeticionDto (Competidor competidor) {
@@ -16,4 +16,4 @@ public class CompetidorConCompeticionDtoCoverter {
                 .fechaNacimiento(competidor.getFechaNacimiento())
                 .build();
     }
-}*/
+}
