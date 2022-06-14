@@ -6,6 +6,7 @@ import 'package:aep_app/repository/campeonato_repository/campeonato_repository.d
 import 'package:aep_app/repository/campeonato_repository/campeonato_repository_impl.dart';
 import 'package:aep_app/ui/screen/error_screen.dart';
 import 'package:aep_app/ui/screen/menu_screen.dart';
+import 'package:aep_app/ui/screen/un_campeonato_screen.dart';
 import 'package:aep_app/ui/utils/color_style.dart';
 import 'package:aep_app/ui/widgets/aep_bar.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -89,6 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _campeonatos(BuildContext context, Campeonatos campeonatos) {
     final width = MediaQuery.of(context).size.width / 2.6;
+    var unCampeonato = campeonatos;
     return Container(
       color: Colors.white,
       padding: EdgeInsets.symmetric(vertical: 10),
@@ -99,6 +101,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 .copyWith(right: 0),
           ),
           GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => UnCampeonatoScreen(unCampeonato, Campeonato: campeonatos,),
+              ),
+            ),
             child: Container(
               alignment: Alignment.center,
               height: MediaQuery.of(context).size.height * 0.45,
