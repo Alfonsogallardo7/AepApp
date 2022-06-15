@@ -25,10 +25,10 @@ public class CompeticionDtoConverter {
                 .provincia(competicion.getProvincia())
                 .localidad(competicion.getLocalidad())
                 .sesiones(competicion.getSesiones())
-                .competidores(competicion.getListaCompetidores()
+                /*.competidores(competicion.getListaCompetidores()
                         .stream()
                         .map(competidorConCompeticionDtoCoverter::convertCompetidorConCompeticionToCompetidorConCompeticionDto)
-                        .collect(Collectors.toList()))
+                        .collect(Collectors.toList()))*/
                 .build();
     }
 

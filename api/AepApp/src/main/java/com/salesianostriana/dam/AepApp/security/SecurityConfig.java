@@ -60,10 +60,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //Aquí irá un has role administrador
                 .antMatchers(HttpMethod.POST, "/auth/register-admin").hasRole("ADMINISTRADOR")
                 .antMatchers(HttpMethod.GET, "/championships/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/championships/", "/athletes/").permitAll()
+                .antMatchers(HttpMethod.POST, "/championships/", "/athletes/").hasRole("ADMINISTRADOR")
                 .antMatchers(HttpMethod.DELETE, "/championships/{id}", "/athletes/{id}").permitAll()
                 .antMatchers(HttpMethod.PUT, "/championships/{id}", "/athletes/{id}").permitAll()
-                .antMatchers(HttpMethod.GET, "/judges/**", "/athletes/**").hasRole("ADMINSITRADOR")
+                .antMatchers(HttpMethod.GET, "/judges/**", "/athletes/**").authenticated()
                 .antMatchers(HttpMethod.POST, "/judges/").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/judges/{id}").permitAll()
                 .antMatchers(HttpMethod.PUT, "/judges/{id}").permitAll()
