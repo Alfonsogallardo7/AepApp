@@ -63,7 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/championships/", "/athletes/").hasRole("ADMINISTRADOR")
                 .antMatchers(HttpMethod.DELETE, "/championships/{id}", "/athletes/{id}").permitAll()
                 .antMatchers(HttpMethod.PUT, "/championships/{id}", "/athletes/{id}").permitAll()
-                .antMatchers(HttpMethod.GET, "/judges/**", "/athletes/**").authenticated()
+                .antMatchers(HttpMethod.GET, "/judges/**", "/athletes/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/judges/").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/judges/{id}").permitAll()
                 .antMatchers(HttpMethod.PUT, "/judges/{id}").permitAll()
@@ -71,7 +71,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/clubs/").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/clubs/{id}").permitAll()
                 .antMatchers(HttpMethod.PUT, "/clubs/{id}").permitAll()
-                .antMatchers("/h2-console/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthorizationFilter, UsernamePasswordAuthenticationFilter.class);

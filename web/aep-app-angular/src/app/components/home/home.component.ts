@@ -19,4 +19,12 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('championships/');
   }
 
+  goJudges() {
+    this.router.navigateByUrl('judges/');
+  }
+
+  goAtletas() {
+    this.router.navigateByUrl('athletes/');
+  }
+
 }

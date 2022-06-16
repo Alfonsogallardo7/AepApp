@@ -14,6 +14,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { DialogCampeonatoDetailComponent } from './components/dialog-campeonato-detail/dialog-campeonato-detail.component';
 import { NewCampeonatoComponent } from './components/new-campeonato/new-campeonato.component';
+import { JuezItemComponent } from './components/juez-item/juez-item.component';
+import { JuezListComponent } from './components/juez-list/juez-list.component';
+import { CompetidoresItemComponent } from './components/competidores-item/competidores-item.component';
+import { CompetidoresListComponent } from './components/competidores-list/competidores-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,11 @@ import { NewCampeonatoComponent } from './components/new-campeonato/new-campeona
     NavbarComponent,
     HomeComponent,
     DialogCampeonatoDetailComponent,
-    NewCampeonatoComponent
+    NewCampeonatoComponent,
+    JuezItemComponent,
+    JuezListComponent,
+    CompetidoresItemComponent,
+    CompetidoresListComponent
   ],
   imports: [
     BrowserModule,

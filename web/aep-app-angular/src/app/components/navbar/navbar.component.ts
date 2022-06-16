@@ -28,4 +28,12 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('home/');
   }
 
+  goJudges() {
+    this.router.navigateByUrl('judges/');
+  }
+
+  goAtletas() {
+    this.router.navigateByUrl('athletes/');
+  }
+
 }
