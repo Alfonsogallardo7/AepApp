@@ -20,8 +20,6 @@ export class DialogCampeonatoDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
-    console.log(this.data.campeonatoId);
     this.campeonatoService.getCampeonato(this.data.campeonatoId).subscribe (campeonatoResult => {
       this.campeonato = campeonatoResult;
     })

@@ -1,17 +1,16 @@
 <mat-card>
     <mat-card-content class="card-content">
-        <span>{{juezInput.id}}</span>
         <span>{{juezInput.nombre}}</span>
         <span>{{juezInput.apellidos}}</span>
         <span>{{juezInput.tipoJuez}}</span>
         <div>
-            <button mat-icon-button aria-label="Example icon-button with a menu" >
+            <!-- <button mat-icon-button aria-label="Example icon-button with a menu" >
                 <mat-icon>add</mat-icon>
             </button>
             <button mat-icon-button aria-label="Example icon-button with a menu">
                 <mat-icon>edit</mat-icon>
-            </button>
-            <button mat-icon-button aria-label="Example icon-button with a menu">
+            </button> -->
+            <button mat-icon-button aria-label="Example icon-button with a menu" (click)="onDeleteJuez(juezInput)">
                 <mat-icon>delete</mat-icon>
             </button>
         </div>
