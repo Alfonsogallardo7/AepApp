@@ -9,6 +9,12 @@ import com.salesianostriana.dam.AepApp.services.impl.FileSystemStorageService;
 import com.salesianostriana.dam.AepApp.users.models.Usuario;
 import com.salesianostriana.dam.AepApp.utils.MediaTypeUrlResource;
 import com.salesianostriana.dam.AepApp.utils.paginations.PaginationsLinksUtils;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,6 +35,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/championships")
 @RequiredArgsConstructor
+@Tag(name = "competicion", description = "El controlador de las competiciones")
 public class CompeticionController {
 
     private final FileSystemStorageService fileSystemStorageService;
@@ -36,6 +43,19 @@ public class CompeticionController {
     private final CompeticionDtoConverter competicionDtoConverter;
     private final PaginationsLinksUtils paginationsLinksUtils;
 
+    @Operation(summary = "Agregar una nueva competicion")
+    @ApiResponses(value = {
+            @ApiResponse (responseCode = "201",
+                    description = "La competicion se ha creado correctamente",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema (implementation = Competicion.class))}),
+            @ApiResponse (responseCode = "400",
+                    description = "No se ha podido crear la competicion correctamente, error sintaxtico",
+                    content = @Content),
+            @ApiResponse (responseCode = "403",
+                    description = "Acceso denegado",
+                    content = @Content)
+    })
     @PostMapping(value = "/", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity <?> create (@RequestPart("newCompeticion")CreateCompeticionDto createCompeticionDto, @RequestPart("file")MultipartFile file, @AuthenticationPrincipal Usuario usuario)throws IOException {
         Competicion competicion = service.save(createCompeticionDto, file, usuario);
@@ -43,6 +63,16 @@ public class CompeticionController {
                 .body(competicionDtoConverter.convertComepticionToCompeticionDto(competicion));
     }
 
+    @Operation(summary = "Listar todas las competiciones existentes")
+    @ApiResponses(value = {
+            @ApiResponse (responseCode = "200",
+                    description = "Se han listado todas las competiciones correctamente",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema (implementation = Competicion.class))}),
+            @ApiResponse (responseCode = "404",
+                    description = "No se ha podido encontrar ninguna competicion",
+                    content = @Content)
+    })
     @GetMapping("/")
     public ResponseEntity<Page<GetCompeticionDto>> findAll (@PageableDefault(size = 10, page = 0)Pageable pageable, HttpServletRequest request) {
         Page<Competicion> competicion = service.findAll(pageable);
@@ -62,6 +92,16 @@ public class CompeticionController {
         }
     }
 
+    @Operation(summary = "Listar todos los detalles de una competicion por su id")
+    @ApiResponses(value = {
+            @ApiResponse (responseCode = "200",
+                    description = "Se han listado todos los detalles de la competicion correctamente",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema (implementation = Competicion.class))}),
+            @ApiResponse (responseCode = "404",
+                    description = "No se ha podido encontrar ninguna competicion",
+                    content = @Content)
+    })
     @GetMapping("/{id}")
     public ResponseEntity<GetCompeticionDto> findById (@PathVariable UUID id) {
         Optional<Competicion> competicionBuscada = service.findById(id);
@@ -70,6 +110,22 @@ public class CompeticionController {
         else return ResponseEntity.ok().body(competicionDtoConverter.convertComepticionToCompeticionDto(competicionBuscada.get()));
     }
 
+    @Operation(summary = "Se edita una competicion existente")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201",
+                    description = "Se ha editado la competicion correctamente",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Competicion.class))}),
+            @ApiResponse(responseCode = "404",
+                    description = "No se ha encontrado la competicion",
+                    content = @Content),
+            @ApiResponse(responseCode = "400",
+                    description = "Los datos que se han introducido son erroneos",
+                    content = @Content),
+            @ApiResponse(responseCode = "403",
+                    description = "Acceso denegado",
+                    content = @Content)
+    })
     @PutMapping("/{id}")
     public ResponseEntity<GetCompeticionDto> edit (@PathVariable UUID id, @AuthenticationPrincipal Usuario usuario, @RequestPart("newCompeticion") CreateCompeticionDto competicionDto, @RequestPart("file") MultipartFile file) {
         GetCompeticionDto competicionBuscada = service.edit(id, competicionDto, file, usuario);
@@ -80,6 +136,19 @@ public class CompeticionController {
         }
     }
 
+    @Operation(summary = "Borrar una competicion por su id")
+    @ApiResponses(value = {
+            @ApiResponse (responseCode = "204",
+                    description = "Se ha borrado la competicion correctamente",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema (implementation = Competicion.class))}),
+            @ApiResponse (responseCode = "404",
+                    description = "No se ha podido encontrar ninguna competicion",
+                    content = @Content),
+            @ApiResponse (responseCode = "403",
+                    description = "Acceso denegado",
+                    content = @Content)
+    })
     @DeleteMapping("{id}")
     public ResponseEntity<?> delete (@PathVariable UUID id, @AuthenticationPrincipal Usuario usuario) {
         Optional<Competicion> competicionBuscada = service.findById(id);
