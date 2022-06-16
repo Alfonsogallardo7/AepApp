@@ -25,7 +25,7 @@ export class CampeonatoService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getCampeonatos(): Observable<CampeonatoResponse> {
-    return this.http.get<CampeonatoResponse>(`${environment.apiBaseUrl}championships/`);
+    return this.http.get<CampeonatoResponse>(`${environment.apiBaseUrl}championships/`, DEFAULT_HEADERS);
     // return this.http.get<CampeonatoResponse>(`http://localhost:8080/championships/`);
 
   }
