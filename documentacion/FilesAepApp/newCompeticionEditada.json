@@ -1,0 +1,18 @@
+{
+    "nombre" : "44º Campeonato de España Absoluto de Powerlifting Equipado" ,
+    "cartel" : "",
+    "categoriaCompeticion" : "AEP 1",
+    "email" : "alfonsogallardo7@gmail.com",
+    "password" : "1234abcd",
+    "password2" : "1234abcd",
+    "username" : "alfonsoo_gallardo",
+    "dni" : "55533362H",
+    "direccion" : "Canarias 114",
+    "codigoPostal" : "41920",
+    "localidad" : "San Juan de Aznalfarache",
+    "telefono" : "666777888",
+    "fechaInicio" : "2021-05-28",
+    "fechaFin" : "2021-05-28",
+    "localidad" : "Madrid",
+    "provincia" : "Madrid"
+}

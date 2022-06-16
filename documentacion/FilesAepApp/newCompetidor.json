@@ -1,0 +1,11 @@
+{
+    "nombre" : "Alfonso" ,
+    "apellidos" : "Gallardo Rodríguez",
+    "fechaNacimiento" : "2001-06-30",
+    "categoriaPeso" : "74",
+    "foto" : "",
+    "marcasSq" : "175",
+    "marcasBp" : "115",
+    "marcasDl" : "210",
+    "club" : "Powerlifting Sevilla"
+}

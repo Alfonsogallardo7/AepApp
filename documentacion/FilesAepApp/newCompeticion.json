@@ -1,0 +1,18 @@
+{
+    "nombre" : "IV Open de Powerlifting y PB de Andalucia" ,
+    "cartel" : "",
+    "categoriaCompeticion" : "AEP 2",
+    "email" : "alfonsogallardo7@gmail.com",
+    "password" : "1234abcd",
+    "password2" : "1234abcd",
+    "username" : "alfonsoo_gallardo",
+    "dni" : "55533362H",
+    "direccion" : "Canarias 114",
+    "codigoPostal" : "41920",
+    "localidad" : "San Juan de Aznalfarache",
+    "telefono" : "666777888",
+    "fechaInicio" : "2021-07-24",
+    "fechaFin" : "2021-07-25",
+    "localidad" : " Bollullos de la Mitacion",
+    "provincia" : "Sevilla"
+}

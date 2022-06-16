@@ -1,0 +1,15 @@
+{
+    "nombre" : "Alfonso" ,
+    "apellidos" : "Gallardo Rodríguez",
+    "fotoPerfil" : "",
+    "email" : "alfonsogallardo7@gmail.com",
+    "password" : "1234abcd",
+    "password2" : "1234abcd",
+    "username" : "alfonsoo_gallardo",
+    "dni" : "55533362H",
+    "direccion" : "Canarias 114",
+    "codigoPostal" : "41920",
+    "localidad" : "San Juan de Aznalfarache",
+    "telefono" : "666777888",
+    "fechaNacimiento" : "2001-06-30"
+}

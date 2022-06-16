@@ -1,0 +1,15 @@
+{
+    "nombre" : "Rosa Maria" ,
+    "apellidos" : "Rodriguez Movilla",
+    "fotoPerfil" : "",
+    "email" : "rosamariarodriguez@gmail.com",
+    "password" : "1234abcd",
+    "password2" : "1234abcd",
+    "username" : "rosa_maria",
+    "dni" : "55533362H",
+    "direccion" : "Canarias 114",
+    "codigoPostal" : "41920",
+    "localidad" : "San Juan de Aznalfarache",
+    "telefono" : "666777888",
+    "fechaNacimiento" : "2001-06-30"
+}
