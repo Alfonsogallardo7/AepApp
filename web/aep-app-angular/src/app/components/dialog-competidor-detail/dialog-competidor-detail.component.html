@@ -1,0 +1,20 @@
+<ng-container *ngIf="competidor">
+    <div class="dialog-container">
+
+        <h2>{{competidor?.nombre}} {{competidor.apellidos}}</h2>
+        <img [src]="competidor.foto" width="40%" class="img-cartel">
+
+        <div style="display: flex; flex-direction:row; width: 70%; justify-content: space-between; padding-top: 15px;">
+            <div style="display: flex; flex-direction:column;">
+                <h4>Sq: {{competidor.marcasSq}}</h4>
+                <h4>Bp: {{competidor.marcasBp}}</h4>
+                <h4>Dl: {{competidor.marcasDl}}</h4>
+            </div>
+            <div style="display: flex; flex-direction:column; width: 45%;">
+                <h4>Fecha Nacimiento: {{competidor.fechaNacimiento}}</h4>
+                <h4>Categoría de Peso: {{competidor.categoriaPeso}}</h4>
+            </div>
+        </div>
+
+    </div>
+</ng-container>

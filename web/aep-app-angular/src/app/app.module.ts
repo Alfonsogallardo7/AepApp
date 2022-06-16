@@ -18,6 +18,7 @@ import { JuezItemComponent } from './components/juez-item/juez-item.component';
 import { JuezListComponent } from './components/juez-list/juez-list.component';
 import { CompetidoresItemComponent } from './components/competidores-item/competidores-item.component';
 import { CompetidoresListComponent } from './components/competidores-list/competidores-list.component';
+import { DialogCompetidorDetailComponent } from './components/dialog-competidor-detail/dialog-competidor-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { CompetidoresListComponent } from './components/competidores-list/compet
     JuezItemComponent,
     JuezListComponent,
     CompetidoresItemComponent,
-    CompetidoresListComponent
+    CompetidoresListComponent,
+    DialogCompetidorDetailComponent
   ],
   imports: [
     BrowserModule,
