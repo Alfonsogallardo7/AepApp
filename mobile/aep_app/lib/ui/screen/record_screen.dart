@@ -11,7 +11,8 @@ class _RecordScreenState extends State<RecordScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('RecordScreen'),
+      alignment: Alignment.center,
+      child: Text('Lo sentimos, esta sección aún no esta disponible'),
     );
   }
 }

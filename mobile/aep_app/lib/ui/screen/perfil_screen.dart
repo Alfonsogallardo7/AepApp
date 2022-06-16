@@ -29,12 +29,15 @@ class _PerfilScreenState extends State<PerfilScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: BlocProvider(
-          create: (context) {
-            return MeBloc(authRepository)..add(FetchMeWithType());
-          },
-          child: _createPopular(context),
-        ));
+        body: Container(
+          alignment: Alignment.center,
+          child: Text('Lo sentimos, esta sección aún no esta disponible'),
+        )); // body: BlocProvider(
+    //   create: (context) {
+    //     return MeBloc(authRepository)..add(FetchMeWithType());
+    //   },
+    //   child: _createPopular(context),
+    // ));
   }
 
   Widget _createPopular(BuildContext context) {
@@ -64,14 +67,13 @@ class _PerfilScreenState extends State<PerfilScreen> {
         children: [
           Container(
             margin: const EdgeInsets.only(top: 12),
-                    width: 90.0,
-                    height: 90.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(me.fotoPerfil)),
-                    ),
+            width: 90.0,
+            height: 90.0,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                  fit: BoxFit.cover, image: NetworkImage(me.fotoPerfil)),
+            ),
           ),
         ],
       ),
