@@ -1,0 +1,21 @@
+<ng-container *ngIf="campeonato">
+    <div class="dialog-container">
+
+        <h2>{{campeonato?.nombre}}</h2>
+        <img [src]="campeonato.cartel" width="40%" class="img-cartel">
+
+        <div style="display: flex; flex-direction:row; width: 70%; justify-content: space-between; padding-top: 15px;">
+            <div style="display: flex; flex-direction:column;">
+                <h4>Localidad: {{campeonato.localidad}}</h4>
+                <h4>Provincia: {{campeonato.provincia}}</h4>
+                <h4>Organizador: {{campeonato.organizador}}</h4>
+            </div>
+            <div style="display: flex; flex-direction:column; width: 45%;">
+                <h4>Fecha Inicio: {{campeonato.fechaInicio}}</h4>
+                <h4>Fecha Fin: {{campeonato.fechaFin}}</h4>
+                <h4>Categoría: {{campeonato.categoriaCompeticion}}</h4>
+            </div>
+        </div>
+
+    </div>
+</ng-container>

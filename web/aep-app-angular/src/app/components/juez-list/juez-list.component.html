@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<div class="campeonato-screen">
+
+    <div class="card-content">
+        <div class="head-table">
+            <span>Nombre</span>
+            <span>Apellidos</span>
+            <span style="padding-left: 7% ;">Tipo de Juez</span>
+            <span></span>
+        
+        </div>
+        <div class="content-table">
+            <app-juez-item *ngFor="let juez of juez" [juezInput]="juez"></app-juez-item>
+        </div>
+    </div>
+</div>

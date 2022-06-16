@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="campeonato-screen">
+
+    <div class="card-content">
+        <div class="head-table">
+            <span>Foto</span>
+            <span style="padding-left: 10%;">Nombre</span>
+            <span style="padding-left: 4% ;">Categoria</span>
+            <span style="padding-left:2% ;">Fecha Nacimiento</span>
+            <span style="padding-left: 2%;">Club</span>
+            <span></span>
+        
+        </div>
+        <div class="content-table">
+            <app-competidores-item *ngFor="let competidores of competidores" [competidorInput]="competidores"></app-competidores-item>
+        </div>
+    </div>
+</div>

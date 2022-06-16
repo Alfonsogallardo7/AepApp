@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-content class="card-content">
+        <div class="image-circle">
+            <img [src]="campeonatoInput.cartel">
+        </div>
+        <span>{{campeonatoInput.id}}</span>
+        <span>{{campeonatoInput.nombre}}</span>
+        <span>{{campeonatoInput.fechaInicio}} / {{campeonatoInput.fechaFin}}</span>
+        <span>{{campeonatoInput.localidad}} ({{campeonatoInput.provincia}})</span>
+        <span>{{campeonatoInput.categoriaCompeticion}}</span>
+        <div>
+            <button mat-icon-button aria-label="Example icon-button with a menu" (click)="goNewCampeonato()">
+                <mat-icon>add</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon-button with a menu" (click)="openDialogCampeonatoDetail()">
+                <mat-icon>info</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon-button with a menu">
+                <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button aria-label="Example icon-button with a menu" (click)="onDeleteCampeonato(campeonatoInput)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-card-content>
+</mat-card>
