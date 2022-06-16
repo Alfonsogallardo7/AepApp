@@ -20,6 +20,6 @@ export class JuezService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   getJueces() {
-    return this.http.get<JuezResponse>(`${environment.apiBaseUrl}judges/`, DEFAULT_HEADERS);
+    return this.http.get<JuezResponse>(`http://localhost:8080/judges/`, DEFAULT_HEADERS);
   }
 }
